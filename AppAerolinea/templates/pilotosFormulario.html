@@ -1,0 +1,12 @@
+{% extends "padre.html" %}
+
+{% block formPilotos %}
+
+    <form action="{% url 'PilotosFormulario' %}" method="post">{% csrf_token %}
+        
+        {{ mi_formulario.as_p }}
+
+        <button type="submit"> Enviar </button>
+    </form>
+
+{% endblock formPilotos %}

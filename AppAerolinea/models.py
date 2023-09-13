@@ -13,6 +13,11 @@ class Destino(models.Model):
 
     def __str__(self):
         return f'{self.nombre}'
+    
+    class Meta():
+
+        verbose_name = 'Destiny'
+        verbose_name_plural = 'Destinations'
 
 
 class Aerolinea(models.Model):
@@ -22,6 +27,11 @@ class Aerolinea(models.Model):
 
     def __str__(self):
         return f'{self.nombre}'
+    
+    class Meta():
+
+        verbose_name = 'Airline'
+        verbose_name_plural = 'Airlines'
 
 
 #Me apoyé de chat gtp para el Min y Max values
@@ -38,6 +48,11 @@ class Piloto(models.Model):
 
     def __str__(self):
         return f'{self.nombre} {self.apellido}'
+    
+    class Meta():
+
+        verbose_name = 'Pilot'
+        verbose_name_plural = 'Pilots'
 
 
 #Los valores predeterminados los saqué de la siguiente forma:
@@ -52,4 +67,9 @@ class Avion(models.Model):
 
     def __str__(self):
         return f'{self.nombre} - {self.activo}'
+    
+    class Meta():
+
+        verbose_name = 'Plane'
+        verbose_name_plural = 'Planes'
 

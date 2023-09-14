@@ -1,19 +1,19 @@
 {% load static %}
 
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: rgba(0, 0, 0, 0.2);">
             <div class="container">
-                <a class="navbar-brand" href="{% url 'Inicio' %}"><img src="{% static 'assets/img/navbar-logo.svg' %}" alt="..." /></a>
+                <a class="navbar-brand" href="{% url 'Inicio' %}"><img src="{% static 'assets/img/navbar-logo.png' %}" alt="..." /></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars ms-1"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="{% url 'Pilotos' %}">Pilotos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'Destinos' %}">Destinos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'Aviones' %}">Aviones</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'Aerolineas' %}">Aerolíneas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Pilotos' %}" style="color: #ffc800;">Pilotos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Destinos' %}" style="color: #ffc800;">Destinos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Aviones' %}" style="color: #ffc800;">Aviones</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Aerolineas' %}" style="color: #ffc800;">Aerolíneas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact" style="color: #ffc800;">Contacto</a></li>
                     </ul>
                 </div>
             </div>

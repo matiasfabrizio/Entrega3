@@ -1,15 +1,12 @@
 from django import forms
-from django.core.validators import MinValueValidator, MaxValueValidator
+from .models import Aerolinea
 
 class formPiloto(forms.Form):
 
     nombre = forms.CharField()
     apellido = forms.CharField()
     email = forms.EmailField()
-    tipo_licencia = forms.IntegerField(
-        #label='Nivel de Licencia',
-        error_messages={'required':'Este campo es requerido.'}
-    )
+    tipo_licencia = forms.IntegerField()
 
 
 class formDestino(forms.Form):
@@ -25,6 +22,8 @@ class formAerolineas(forms.Form):
 
 class formAviones(forms.Form):
 
+    opciones = Aerolinea.objects.all().values_list('id', 'nombre')
+
     codigo = forms.IntegerField()
     activo = forms.BooleanField()
-    aerolinea = forms.CharField()
+    aerolinea = forms.ChoiceField(choices=opciones)

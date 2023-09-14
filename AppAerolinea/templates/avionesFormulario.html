@@ -2,7 +2,9 @@
 
 {% block formAviones %}
 
-<h1>Sección de Registro de Aviones</h1>
+<section>
+
+    <h1>Sección de Registro de Aviones</h1>
 
     <form action="{% url 'AvionesFormulario' %}" method="post">{% csrf_token %}
         
@@ -10,5 +12,7 @@
 
         <button type="submit"> Enviar </button>
     </form>
+
+</section>
 
 {% endblock formAviones %}

@@ -8,7 +8,7 @@ class Destino(models.Model):
     nombre = models.CharField(max_length=60)
     tiempo_vuelo_en_horas = models.IntegerField(max_length=2, validators=[
         MinValueValidator(1, message='El tiempo mínimo de vuelo es 1 hora.'),
-        MaxValueValidator(24, message='El vuelo más largo posible es de 19 horas.') #El dato lo saqué de internet.
+        MaxValueValidator(30, message='El vuelo más largo posible es de 30 horas.') #El dato lo saqué de internet.
     ])
 
     def __str__(self):
@@ -64,7 +64,7 @@ class Avion(models.Model):
     aerolinea = models.ForeignKey(Aerolinea, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'{self.nombre} - {self.activo}'
+        return f'{self.codigo} - {self.activo}'
     
     class Meta():
 

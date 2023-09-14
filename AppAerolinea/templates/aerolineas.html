@@ -62,7 +62,7 @@
     </div>
 
     <div class="text-center" style="margin-top: 60px;">
-        <a class="btn btn-primary btn-xl text-uppercase" href="{% url 'AvionesFormulario' %}">Ir al Registro de Aviones</a>
+        <a class="btn btn-primary btn-xl text-uppercase" href="{% url 'AerolineasFormulario' %}">Ir al Registro de Aerolíneas</a>
     </div>
 
 </section>
@@ -71,7 +71,19 @@
 
 {% block listaAerolineas %}
 
+<h1 style="margin-top: 10px;">Sección Lista de Aerolíneas</h1>
 
+<p><strong>Lista de Aerolíneas:</strong></p>
+
+<ul>
+    {% for aerolinea in aerolineas %}
+
+    <li>
+        Nombre: {{aerolineas.nombre}}
+    </li>
+    
+    {% endfor %}
+</ul>
 
 {% endblock listaAerolineas %}
 

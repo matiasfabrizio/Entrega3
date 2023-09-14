@@ -6,10 +6,19 @@ from .models import *
 
 def inicio(req):
 
-    context = {
-        'pag_inicio' : True,
-    }
-    return render(req, 'inicio.html', context)
+    if req.method == "GET" or req.method == "POST":
+
+        context = {
+            'pag_inicio' : True,
+        }
+        return render(req, 'inicio.html', context)
+    
+    else:
+
+        context = {
+            'pag_inicio' : True,
+        }
+        return render(req, 'inicio.html', context)
 
 
 def pilotos(req):
@@ -20,6 +29,9 @@ def pilotos(req):
 
 
 def pilotosFormulario(req):
+
+    lista = Piloto.objects.all()
+
     if req.method == "POST":
         
         mi_formulario = formPiloto(req.POST)
@@ -32,7 +44,7 @@ def pilotosFormulario(req):
             piloto = Piloto(nombre=data["nombre"], apellido=data["apellido"], email=data["email"], tipo_licencia=data["tipo_licencia"])
             piloto.save()
 
-            return render(req, 'pilotos.html')
+            return render(req, 'pilotos.html', {'pilotos':lista})
 
     else:
         
@@ -49,6 +61,9 @@ def destinos(req):
 
 
 def destinosFormulario(req):
+
+    lista = Destino.objects.all()
+
     if req.method == "POST":
         
         mi_formulario = formDestino(req.POST)
@@ -61,7 +76,7 @@ def destinosFormulario(req):
             destino = Destino(nombre=data["nombre"], tiempo_vuelo_en_horas=data["tiempo_vuelo_en_horas"])
             destino.save()
 
-            return render(req, 'destinos.html')
+            return render(req, 'destinos.html', {'destinos':lista})
 
     else:
         
@@ -77,6 +92,9 @@ def aviones(req):
     return render(req, 'aviones.html', {'aviones':lista})
 
 def avionesFormulario(req):
+
+    lista = Avion.objects.all()
+
     if req.method == "POST":
         
         mi_formulario = formAviones(req.POST)
@@ -89,7 +107,7 @@ def avionesFormulario(req):
             avion = Avion(codigo=data["codigo"], activo=data["activo"], aerolinea=data["aerolinea"])
             avion.save()
 
-            return render(req, 'aviones.html')
+            return render(req, 'aviones.html', {'aviones':lista})
 
     else:
         
@@ -100,24 +118,26 @@ def avionesFormulario(req):
 
 def aerolineas(req):
 
-    lista = Avion.objects.all()
+    lista = Aerolinea.objects.all()
 
-    return render(req, 'aerolineas.html', {'aviones':lista})
+    return render(req, 'aerolineas.html', {'aerolineas':lista})
 
 def aerolineasFormulario(req):
+
+    lista = Aerolinea.objects.all()
+
     if req.method == "POST":
         
         mi_formulario = formAerolineas(req.POST)
-
         
         if mi_formulario.is_valid():
             
             data = mi_formulario.cleaned_data
 
-            aerolinea = Aerolinea(nombre=data["aerolinea"])
+            aerolinea = Aerolinea(nombre=data["nombre"])
             aerolinea.save()
 
-            return render(req, 'aerolineas.html')
+            return render(req, 'aerolineas.html', {'aerolineas':lista})
 
     else:
         

@@ -35,18 +35,22 @@
 
 {% block listaAviones %}
 
-<h1 style="margin-top: 10px;">Sección Lista de Aviones</h1>
+<section>
 
-<p><strong>Lista de Aviones:</strong></p>
+    <h1 style="margin-top: 10px;">Sección Lista de Aviones</h1>
 
-<ul>
-    {% for avion in aviones %}
+    <p><strong>Aquí se muestran los aviones registrados:</strong></p>
 
-    <li>
-        Código: {{avion.codigo}} - Operativo: {{avion.activo}} - Aerolinea: {{avion.aerolinea}}
-    </li>
-    
-    {% endfor %}
-</ul>
+    <ul>
+        {% for avion in aviones %}
+
+        <li>
+            Código: {{avion.codigo}} - Operativo: {{avion.activo}} - Aerolinea: {{avion.aerolinea}}
+        </li>
+        
+        {% endfor %}
+    </ul>
+
+</section>
 
 {% endblock listaAviones %}

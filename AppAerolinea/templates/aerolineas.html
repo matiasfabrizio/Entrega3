@@ -7,64 +7,71 @@
 <section class="page-section" id="about">
     <div class="container">
         <div class="text-center">
-            <h2 class="section-heading text-uppercase">About</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            <h2 class="section-heading text-uppercase">Aerolíneas</h2>
+            <h3 class="section-subheading text-muted">Aquí verás las Aerolíneas más utilizadas en el mundo.</h3>
         </div>
         <ul class="timeline">
             <li>
                 <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static 'assets/img/about/1.jpg' %}" alt="..." /></div>
                 <div class="timeline-panel">
                     <div class="timeline-heading">
-                        <h4>2009-2011</h4>
-                        <h4 class="subheading">Our Humble Beginnings</h4>
+                        <h4 class="subheading">LATAM Airlines</h4>
                     </div>
-                    <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                    <div class="timeline-body"><p class="text-muted">LATAM Airlines es una aerolínea multinacional chilena formada por la fusión de las aerolíneas sudamericanas LAN, TAM y sus filiales.</p></div>
                 </div>
             </li>
             <li class="timeline-inverted">
                 <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static 'assets/img/about/2.jpg' %}" alt="..." /></div>
                 <div class="timeline-panel">
                     <div class="timeline-heading">
-                        <h4>March 2011</h4>
-                        <h4 class="subheading">An Agency is Born</h4>
+                        <h4 class="subheading">Avianca</h4>
                     </div>
-                    <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                    <div class="timeline-body"><p class="text-muted">Avianca S. A. IATA: AV, OACI: AVA y denominación: Avianca, es la aerolínea de bandera colombiana, propiedad de la sociedad colombo británica​​ Avianca Group.</p></div>
                 </div>
             </li>
             <li>
                 <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static 'assets/img/about/3.jpg' %}" alt="..." /></div>
                 <div class="timeline-panel">
                     <div class="timeline-heading">
-                        <h4>December 2015</h4>
-                        <h4 class="subheading">Transition to Full Service</h4>
+                        <h4 class="subheading">Jet Smart</h4>
                     </div>
-                    <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                    <div class="timeline-body"><p class="text-muted">JetSMART es una aerolínea de bajo costo que opera en Sudamérica, fundada en 2016 por el fondo Norteamericano Indigo Partners. Vuela a 31 destinos en Chile, 9 en Perú, 18 en Argentina y 19 destinos internacionales en Sudamérica.</p></div>
                 </div>
             </li>
             <li class="timeline-inverted">
                 <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static 'assets/img/about/4.jpg' %}" alt="..." /></div>
                 <div class="timeline-panel">
                     <div class="timeline-heading">
-                        <h4>July 2020</h4>
-                        <h4 class="subheading">Phase Two Expansion</h4>
+                        <h4 class="subheading">Sky Airline</h4>
                     </div>
-                    <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                    <div class="timeline-body"><p class="text-muted">SKY Airline es una aerolínea de bajo costo chilena fundada en 2002 por Jürgen Paulmann como una alternativa para vuelos nacionales. A 2023 cuenta con una moderna flota de 28 aeronaves exclusivamente del modelo A320neo convirtiendo a SKY en una de las aerolíneas con la flota más moderna de la región.</p></div>
                 </div>
             </li>
             <li class="timeline-inverted">
                 <div class="timeline-image">
                     <h4>
-                        Be Part
+                        Y Muchas
                         <br />
-                        Of Our
+                        Otras
                         <br />
-                        Story!
+                        Más
                     </h4>
                 </div>
             </li>
         </ul>
     </div>
+
+    <div class="text-center" style="margin-top: 60px;">
+        <a class="btn btn-primary btn-xl text-uppercase" href="{% url 'AvionesFormulario' %}">Ir al Registro de Aviones</a>
+    </div>
+
 </section>
 
 {% endblock aerolineas %}
+
+{% block listaAerolineas %}
+
+
+
+{% endblock listaAerolineas %}
 

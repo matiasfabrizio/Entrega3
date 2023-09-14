@@ -2,6 +2,8 @@
 
 {% block formPilotos %}
 
+<h1>Sección de Registro de Pilotos</h1>
+
     <form action="{% url 'PilotosFormulario' %}" method="post">{% csrf_token %}
         
         {{ mi_formulario.as_p }}

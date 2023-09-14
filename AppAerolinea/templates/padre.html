@@ -18,6 +18,86 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+
+
+
+        <!-- Style del carrusel -->
+
+        <style>
+            /* Style for the fixed-height section */
+            .carousel-section {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center; /* Center vertically and horizontally */
+                height: 400px; /* Adjust the height as needed */
+                position: relative;
+            }
+
+
+            .image-carousel {
+                display: flex;
+                flex-direction: column; /* Stack elements vertically */
+                align-items: center;
+                text-align: center;
+                padding: 20px; /* Add some padding for spacing */
+            }
+    
+            /* Style for the carousel container */
+            .carousel-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+            }
+    
+            /* Style for the image wrapper */
+            .image-wrapper {
+                display: inline-block;
+                position: relative;
+            }
+    
+            .image-text {
+                margin-top: 10px; /* Add margin to separate the title and carousel */
+                font-weight: bold;
+            }
+    
+            /* Style for the carousel image */
+            .carousel-image {
+                max-height: 250px; /* Set the maximum height */
+                width: auto; /* Allow the width to adjust automatically */
+                border-radius: 50%; /* Make the image a circle */
+            }
+    
+            /* Style for the carousel buttons */
+            .carousel-buttons {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: 50%; /* Adjust the left to move both buttons to the center */
+                z-index: 1; /* Place the buttons above the image */
+            }
+    
+            #prev-button {
+                transform: translateX(-1000%); /* Adjust the left position for the previous button */
+            }
+    
+            #next-button {
+                transform: translateX(750%); /* Adjust the left position for the next button */
+            }
+    
+            .carousel-buttons button {
+                background: none;
+                border: none;
+                font-size: 24px;
+                cursor: pointer;
+            }
+        </style>
+
+        <!-- Fin del Style del carrusel-->
+
+
+
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -37,7 +117,7 @@
                 
             </div>
         </header>
-        <!-- Services-->
+        <!-- Inicio -->
         
         {% if pag_inicio == True %}
         
@@ -53,11 +133,27 @@
         
         {% endblock destinos %}
 
-        <!-- About-->
+        {% block listaDestinos %}
         
-        {% block aerolineas %}
+        {% endblock listaDestinos %}
+
+        {% block formDestinos %}
         
-        {% endblock aerolineas %}
+        {% endblock formDestinos %}
+
+        <!-- Aviones -->
+
+        {% block aviones %}
+        
+        {% endblock aviones %}
+        
+        {% block formAviones %}
+        
+        {% endblock formAviones %}
+
+        {% block listaAviones %}
+        
+        {% endblock listaAviones %}
 
         <!-- Pilotos -->
         
@@ -73,12 +169,26 @@
         
         {% endblock listaPilotos %}
 
-        <!-- Clients-->
+        <!-- Aerolineas -->
+
+        {% block aerolineas %}
+        
+        {% endblock aerolineas %}
+
+        {% block formAerolineas %}
+        
+        {% endblock formAerolineas %}
+
+        {% block listaAerolineas %}
+        
+        {% endblock listaAerolineas %}
+
+        <!-- Clients -->
         
         {% block clientes %}
         
         {% endblock clientes %}
-
+        
         <!-- Contact-->
         <section class="page-section" id="contact">
             <div class="container">
@@ -160,161 +270,13 @@
                 </div>
             </div>
         </footer>
+        
         <!-- Portfolio Modals-->
-        <!-- Portfolio item 1 modal popup-->
-        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'assets/img/close-icon.svg' %}" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project details-->
-                                    <h2 class="text-uppercase">Dubai</h2>
-                                    <p class="item-intro text-muted">Emiratos Árabes Unidos</p>
-                                    <img class="img-fluid d-block mx-auto" src="{% static 'assets/img/portfolio/1dubai.png' %}" alt="..." />
-                                    <p>Dubái es una ciudad emirato de los Emiratos Árabes Unidos conocida por su lujoso comercio, la arquitectura ultramoderna y su vida nocturna animada. Burj Khalifa, una torre de 830 m de alto, domina el paisaje lleno de rascacielos.</p>
-                                    
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-xmark me-1"></i>
-                                        Cerrar Ventana
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio item 2 modal popup-->
-        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'assets/img/close-icon.svg' %}" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project details-->
-                                    <h2 class="text-uppercase">Londres</h2>
-                                    <p class="item-intro text-muted">Reino Unido</p>
-                                    <img class="img-fluid d-block mx-auto" src="{% static 'assets/img/portfolio/2londres.png' %}" alt="..." />
-                                    <p>Londres, la capital de Inglaterra y del Reino Unido, es una ciudad del siglo XXI con una historia que se remonta a la época romana. En su centro se alzan el imponente Palacio del Parlamento, la torre del icónico reloj "Big Ben" y la Abadía de Westminster, lugar de las coronaciones monárquicas británicas.</p>
-                                    
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-xmark me-1"></i>
-                                        Cerrar Ventana
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio item 3 modal popup-->
-        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'assets/img/close-icon.svg' %}" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project details-->
-                                    <h2 class="text-uppercase">Cancún</h2>
-                                    <p class="item-intro text-muted">México</p>
-                                    <img class="img-fluid d-block mx-auto" src="{% static 'assets/img/portfolio/3cancun.png' %}" alt="..." />
-                                    <p>Cancún es una ciudad de México ubicada en la península de Yucatán que limita con el mar Caribe y que es conocida por sus playas, los numerosos centros turísticos y la vida nocturna. Se compone de 2 áreas distintas: el área del centro más tradicional y la Zona Hotelera, la franja costera con hoteles altos, clubes nocturnos, tiendas y restaurantes.</p>
-                                    
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-xmark me-1"></i>
-                                        Cerrar Ventana
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio item 4 modal popup-->
-        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'assets/img/close-icon.svg' %}" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project details-->
-                                    <h2 class="text-uppercase">Bali</h2>
-                                    <p class="item-intro text-muted">Indonesia</p>
-                                    <img class="img-fluid d-block mx-auto" src="{% static 'assets/img/portfolio/4bali.png' %}" alt="..." />
-                                    <p>Bali es una isla de Indonesia conocida por sus frondosas montañas volcánicas, los icónicos arrozales, las playas y los arrecifes de coral. La isla alberga sitios religiosos, como el templo Uluwatu en un acantilado. Al sur, la ciudad costera de Kuta tiene bares encendidos, mientras que Seminyak, Sanur y Nusa Dua son ciudades turísticas populares.</p>
-                                    
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-xmark me-1"></i>
-                                        Cerrar Ventana
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio item 5 modal popup-->
-        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'assets/img/close-icon.svg' %}" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project details-->
-                                    <h2 class="text-uppercase">Creta</h2>
-                                    <p class="item-intro text-muted">Grecia</p>
-                                    <img class="img-fluid d-block mx-auto" src="{% static 'assets/img/portfolio/5creta.png' %}" alt="..." />
-                                    <p>Creta es la isla más grande de Grecia y la quinta en tamaño del mar Mediterráneo. El archipiélago cretense conforma una de las trece periferias y una de las siete administraciones descentralizadas de Grecia.</p>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-xmark me-1"></i>
-                                        Cerrar Ventana
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio item 6 modal popup-->
-        <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'assets/img/close-icon.svg' %}" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project details-->
-                                    <h2 class="text-uppercase">Roma</h2>
-                                    <p class="item-intro text-muted">Italia</p>
-                                    <img class="img-fluid d-block mx-auto" src="{% static 'assets/img/portfolio/6roma.png' %}" alt="..." />
-                                    <p>Roma, la capital de Italia, es una extensa ciudad cosmopolita que tiene a la vista casi 3,000 años de arte, arquitectura y cultura de influencia mundial. Las ruinas antiguas como las del Foro y el Coliseo evocan el poder del antiguo Imperio Romano.</p>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-xmark me-1"></i>
-                                        Cerrar Ventana
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+        {% block subdestinos %}
+        
+        {% endblock subdestinos %}
+
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
@@ -324,5 +286,55 @@
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+        <script>
+            // Define an array of text values corresponding to each image
+            const imageTexts = [
+                "Boeing 747",
+                "Boeing 777",
+                "Boeing 727",
+                "Boeing 787",
+                // Add more text values here for other images
+            ];
+        
+            const images = [
+                "{% static 'assets/img/planes/1.jpg' %}",
+                "{% static 'assets/img/planes/2.jpg' %}",
+                "{% static 'assets/img/planes/3.jpg' %}",
+                "{% static 'assets/img/planes/4.jpg' %}",
+                // Add more image URLs here
+            ];
+                let currentImageIndex = 0;
+
+            const imageCarousel = document.querySelector(".image-carousel");
+            const carouselImage = document.querySelector(".carousel-image");
+            const imageText = document.querySelector(".image-text");
+            const prevButton = document.getElementById("prev-button");
+            const nextButton = document.getElementById("next-button");
+
+            const imageDescription = document.querySelector(".image-description");
+            
+            function updateImage() {
+                carouselImage.src = images[currentImageIndex];
+                imageText.textContent = imageTexts[currentImageIndex];
+                imageDescription.textContent = imageDescriptions[currentImageIndex];
+            }
+
+            prevButton.addEventListener("click", () => {
+                currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                updateImage();
+            });
+
+            nextButton.addEventListener("click", () => {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                updateImage();
+            });
+
+            // Initial image and text update
+            updateImage();
+        </script>
+
+
+
     </body>
 </html>

@@ -1,0 +1,52 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block aviones %}
+
+<section class="image-carousel">
+    <div class="container">
+        <div class="text-center" style="margin-top: 30px;"> <!-- Add margin-top to create separation -->
+            <h2 class="section-heading text-uppercase">Aviones Registrados</h2>
+            <h3 class="section-subheading text-muted">Aquí verás los aviones más comunes empleados en vuelo comercial.</h3>
+        </div>
+    </div>
+
+    <div class="carousel-section">
+        <div class="carousel-container">
+            <div class="carousel-image-wrapper">
+                <img class="carousel-image" src="{% static 'assets/img/planes/1.jpg' %}" alt="" />
+            </div>
+            <div class="carousel-buttons">
+                <button id="prev-button">&lt;</button>
+                <button id="next-button">&gt;</button>
+            </div>
+        </div>
+        <div class="image-text">Boeing 747</div>
+    </div>
+
+    <div class="text-center">
+        <a class="btn btn-primary btn-xl text-uppercase" href="{% url 'AvionesFormulario' %}">Ir al Registro de Aviones</a>
+    </div>
+
+</section>
+
+{% endblock aviones %}
+
+{% block listaAviones %}
+
+<h1 style="margin-top: 10px;">Sección Lista de Aviones</h1>
+
+<p><strong>Lista de Aviones:</strong></p>
+
+<ul>
+    {% for avion in aviones %}
+
+    <li>
+        Código: {{avion.codigo}} - Operativo: {{avion.activo}} - Aerolinea: {{avion.aerolinea}}
+    </li>
+    
+    {% endfor %}
+</ul>
+
+{% endblock listaAviones %}

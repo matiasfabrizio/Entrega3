@@ -103,7 +103,34 @@
             </div>
         </div>
     </div>
+
+    <div class="text-center">
+        <a class="btn btn-primary btn-xl text-uppercase" href="{% url 'DestinosFormulario' %}">Ir al Registro de Destinos</a>
+    </div>
+
 </section>
 
 {% endblock destinos %}
+
+{% block listaDestinos %}
+
+<section>
+
+<h1>Sección Lista de Destinos</h1>
+
+<p><strong>Lista de Destinos:</strong></p>
+
+<ul>
+    {% for destino in destinos %}
+
+    <li>
+        Nombre: {{destino.nombre}} - Tiempo de vuelo en horas: {{destino.tiempo_vuelo_en_horas}}
+    </li>
+    
+    {% endfor %}
+</ul>
+
+</section>
+
+{% endblock listaDestinos %}
 

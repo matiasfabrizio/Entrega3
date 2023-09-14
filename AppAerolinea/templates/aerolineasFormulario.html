@@ -1,0 +1,14 @@
+{% extends "padre.html" %}
+
+{% block formAerolineas %}
+
+<h1>Sección de Registro de Aerolineas</h1>
+
+    <form action="{% url 'AerolineasFormulario' %}" method="post">{% csrf_token %}
+        
+        {{ mi_formulario.as_p }}
+
+        <button type="submit"> Enviar </button>
+    </form>
+
+{% endblock formAerolineas %}

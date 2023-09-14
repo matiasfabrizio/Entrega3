@@ -5,10 +5,10 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 
 class Destino(models.Model):
 
-    nombre = models.IntegerField(max_length=60)
+    nombre = models.CharField(max_length=60)
     tiempo_vuelo_en_horas = models.IntegerField(max_length=2, validators=[
         MinValueValidator(1, message='El tiempo mínimo de vuelo es 1 hora.'),
-        MaxValueValidator(19, message='El vuelo más largo posible es de 19 horas.') #El dato lo saqué de internet.
+        MaxValueValidator(24, message='El vuelo más largo posible es de 19 horas.') #El dato lo saqué de internet.
     ])
 
     def __str__(self):
@@ -22,8 +22,7 @@ class Destino(models.Model):
 
 class Aerolinea(models.Model):
 
-    nombre = models.IntegerField(max_length=40)
-    destinos = models.ManyToManyField(Destino)
+    nombre = models.CharField(max_length=40)
 
     def __str__(self):
         return f'{self.nombre}'
@@ -44,7 +43,7 @@ class Piloto(models.Model):
         MinValueValidator(1, message='El nivel mínimo debe ser 1.'),
         MaxValueValidator(4, message='El nivel máximo debe ser 4.')
     ])
-    aerolinea = models.ForeignKey(Aerolinea, on_delete=models.CASCADE)
+
 
     def __str__(self):
         return f'{self.nombre} {self.apellido}'
@@ -61,7 +60,6 @@ class Piloto(models.Model):
 class Avion(models.Model):
 
     codigo = models.IntegerField(max_length=12)
-    fecha_fabricacion = models.DateField(null=True, blank=True)
     activo = models.BooleanField(default=False)
     aerolinea = models.ForeignKey(Aerolinea, on_delete=models.CASCADE)
 

@@ -124,7 +124,7 @@ def buscar(req):
 
     if req.GET["codigo"]:
         codigo = req.GET["codigo"]
-        aviones = Avion.objects.filter(codigo=codigo)
+        aviones = Avion.objects.filter(codigo__icontains=codigo)
 
         return render(req, 'avionesRespuesta.html', {'aviones':aviones, 'codigo':codigo})
 

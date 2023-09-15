@@ -2,13 +2,22 @@
 
 {% block buscarAviones %}
 
-<form action="{% url 'Buscar' %}" method="GET">
+<section>
 
-    <input type="number" name="codigo" id="codigo">
+    <h1>Búsqueda de aviones</h1>
 
-    <input type="submit" value="Buscar">
+    <h5>Escriba el código con el que desee buscar el avión:</h5>
+
+    <form action="{% url 'Buscar' %}" method="GET">
+
+        <input type="number" name="codigo" id="codigo" placeholder="Código del avión">
+
+        <input type="submit" value="Buscar">
+
+    </form>
 
 
-</form>
+</section>
+
 
 {% endblock buscarAviones %}

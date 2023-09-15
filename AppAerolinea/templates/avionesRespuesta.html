@@ -1,0 +1,29 @@
+{% extends "padre.html" %}
+
+{% block respAviones %}
+
+<h1>Resultados de la búsqueda</h1>
+
+<h3>Criterio de búsqueda: "{{codigo}}"</h3>
+
+{% if aviones %}
+
+<ul>
+
+    {% for avion in aviones %}
+
+    <li>Código: #{{avion.codigo}} - Aerolínea: {{avion.aerolinea}}</li>
+    
+    {% endfor %}
+
+</ul>
+
+{% else %}
+
+<p>No se encontró un objeto con la descripción.</p>
+
+{% endif %}
+
+<p style="color: red;">{{respuesta}}</p>
+
+{% endblock respAviones %}

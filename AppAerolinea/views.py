@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .forms import *
 from .models import *
+from django.http import HttpResponse
 
 # Create your views here.
 
@@ -114,6 +115,19 @@ def avionesFormulario(req):
         mi_formulario = formAviones()
 
     return render(req, 'avionesFormulario.html', {"mi_formulario": mi_formulario})
+
+def avionesBuscar(req):
+
+    return render(req, "avionesBuscar.html")
+
+def buscar(req):
+
+    if req.GET["codigo"]:
+        codigo = req.GET["codigo"]
+        aviones = Avion.objects.filter(codigo=codigo)
+
+        return render(req, 'avionesRespuesta.html', {'aviones':aviones, 'codigo':codigo})
+
 
 
 def aerolineas(req):
